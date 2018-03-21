@@ -212,7 +212,7 @@ WebDeveloper.CSS.isValidStyleSheet = function(styleSheet)
     var styleSheetHref = styleSheet.href;
 
     // If the style sheet href is not set or this is not a chrome or data style sheet
-    if(!styleSheetHref || styleSheetHref.indexOf("about:") !== 0 && styleSheetHref.indexOf("chrome://") !== 0 && styleSheetHref.indexOf("chrome-extension://") !== 0 && styleSheetHref.indexOf("moz-extension://") !== 0 && styleSheetHref.indexOf("data:") !== 0 && styleSheetHref.indexOf("resource://") !== 0)
+    if(!styleSheetHref || !styleSheetHref.startsWith("about:") && !styleSheetHref.startsWith("chrome://") && !styleSheetHref.startsWith("chrome-extension://") && !styleSheetHref.startsWith("moz-extension://") && !styleSheetHref.startsWith("data:") && !styleSheetHref.startsWith("resource://"))
     {
       return true;
     }
